@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{5F2A33E8-2D77-4499-A188-0B65F0345497}|IRGraduateAssignment">
+  <MonoDevelop.Ide.ItemProperties.IRGraduateAssignment FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/XMLReader.cs">
+    <Files>
+      <File FileName="Models/Capabilities.cs" Line="8" Column="49" />
+      <File FileName="Models/ContactInfo.cs" Line="10" Column="1" />
+      <File FileName="Models/Network.cs" Line="11" Column="48" />
+      <File FileName="Models/Peripherals.cs" Line="9" Column="41" />
+      <File FileName="Models/SystemTime.cs" Line="6" Column="43" />
+      <File FileName="Models/SystemUnit.cs" Line="12" Column="42" />
+      <File FileName="Startup.cs" Line="46" Column="34" />
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="Models/XMLReader.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="IRGraduateAssignment" expanded="True">
+            <Node name="IRGraduateAssignment" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="XMLReader.cs" selected="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
