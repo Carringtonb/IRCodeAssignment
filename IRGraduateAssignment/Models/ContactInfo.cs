@@ -3,8 +3,7 @@ namespace IRGraduateAssignment.Models
 {
     public class ContactInfo
     {
-        public ContactInfo()
-        {
-        }
+        public string Number { get; set; }
+        public string Name { get; set; }
     }
 }
