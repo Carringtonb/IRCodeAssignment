@@ -3,7 +3,6 @@ namespace IRGraduateAssignment.Models
 {
     public class SystemUnit
     {
-        public string HardwareDetails { get; set; }
         public string ProductID { get; set; }
         public string ProductPlatform { get; set; }
         public string ProductType { get; set; }

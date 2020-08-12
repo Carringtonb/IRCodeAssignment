@@ -1,0 +1,34 @@
+﻿@model List<IRGraduateAssignment.Models.XMLReader.SystemUnit>
+
+<!Doctype html>
+<head>
+    <title>Time Person of the Year Results</title>
+</head>
+
+
+<link rel="stylesheet" href="~/Styles/StyleSheet.css" />
+<!--Traverse through the Model and output each of the line items in the csv file.-->
+<!--9 columns. output each line item-->
+<div>
+    <table>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Platform</th>
+            <th>Product Type</th>
+            <th>Software Details</th>
+            <th>Diagnostics Information</th>
+            <th>State</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.ProductID</td>
+        <td>@item.ProductPlatform</td>
+        <td>@item.ProductType</td>
+        <td>@item.SoftwareDetails</td>
+        <td>@item.DiagnosticInformation</td>
+        <td>@item.State</td>
+    </tr>
+        }
+    </table>
+</div>
