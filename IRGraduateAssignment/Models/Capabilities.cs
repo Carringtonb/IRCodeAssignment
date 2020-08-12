@@ -56,7 +56,6 @@ namespace IRGraduateAssignment.Models
             XElement root = XElement.Load(newPath);
             IEnumerable<XElement> capabilities =
                 from el in root.Elements("Capabilities")
-                where (bool)el.Attribute("Mode")
                 select el;
             foreach (XElement el in capabilities)
             {
