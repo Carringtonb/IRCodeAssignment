@@ -10,6 +10,10 @@ namespace IRGraduateAssignment.Models
 {
     public class XMLReader
     {
+        /// <summary>
+        /// Read and parse all desired information from the selected xml file. Organize data into a DTO to be passed to the front end for rendering
+        /// </summary>
+        /// <returns>List of all SystemUnit properties retrieved from xml file</returns>
         public static List<SystemUnit> ReadFile()
         {
             var path = Environment.CurrentDirectory;
@@ -82,17 +86,6 @@ namespace IRGraduateAssignment.Models
                     PeriType = (string)pr.Element("ConnectedDevice").Element("Type")
                 };
 
-        //TODO finish capabilities method, not getting correct child node elements currently
-        //var capabilities =
-        //    from cp in doc.Root.DescendantsAndSelf("Capabilities")
-        //    select new
-        //    {
-        //        Mode = (string)cp.Element("FECC").Element("Mode"),
-        //        Hold = (string)cp.Element("Hold"),
-        //        Presentation = (string)cp.Element("Presentation"),
-        //        SourceName = (string)cp.Element("FECC").Element("Source")
-        //    };
-
         List < SystemUnit > list = new List<SystemUnit>();
 
             foreach (var op in dataLog)
@@ -124,18 +117,6 @@ namespace IRGraduateAssignment.Models
                 };
                 list.Add(call);
             }
-
-            //foreach (var cp in capabilities)
-            //{
-            //    SystemUnit cap = new SystemUnit
-            //    {
-            //        Mode = cp.Mode,
-            //        Hold = cp.Hold,
-            //        Presentation = cp.Presentation,
-            //        SourceName = cp.SourceName
-            //    };
-            //    list.Add(cap);
-            //}
 
             foreach (var nw in networkDetails)
             {
@@ -205,11 +186,6 @@ namespace IRGraduateAssignment.Models
             public string Direction { get; set; }
             public string DisplayName { get; set; }
             public string Duration { get; set; }
-            //properties for the capabilities
-            public string Mode { get; set; }
-            public string Hold { get; set; }
-            public string Presentation { get; set; }
-            public string SourceName { get; set; }
             // properties for network info
             public string Address { get; set; }
             public string DeviceID { get; set; }
