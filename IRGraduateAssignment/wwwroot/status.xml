@@ -657,14 +657,14 @@
     <ProductPlatform>SX80</ProductPlatform>
     <ProductType>Cisco Codec</ProductType>
     <Software>
-      <Name>s52020</Name>
+      <Name>s52020 </Name>
       <OptionKeys>
-        <Encryption>True</Encryption>
-        <MultiSite>False</MultiSite>
-        <PremiumResolution>True</PremiumResolution>
-        <RemoteMonitoring>True</RemoteMonitoring>
+        <Encryption>True </Encryption>
+        <MultiSite>False </MultiSite>
+        <PremiumResolution>True </PremiumResolution>
+        <RemoteMonitoring>True </RemoteMonitoring>
       </OptionKeys>
-      <ReleaseDate>2016-01-18</ReleaseDate>
+      <ReleaseDate>2016-01-18 </ReleaseDate>
       <Version>ce8.0.1.1e47efe</Version>
     </Software>
     <Diagnostics item="1">
