@@ -60,13 +60,15 @@
     </table>
 </div>
 @*Table for camera information*@
-<div>
+@*<div>
         <table>
             <tr>
                 <th>Mode</th>
                 <th>Hold</th>
                 <th>Presentation</th>
-                <th>Source Information</th>
+                <th>Source Name</th>
+                <th>Source Options</th>
+                <th>Source ID</th>
             </tr>
             @foreach (var item in Model)
             {
@@ -74,11 +76,13 @@
                     <td>@item.Mode</td>
                     <td>@item.Hold</td>
                     <td>@item.Presentation</td>
-                    <td>@item.SourceName>
+                    <td>@item.sourceName>
+                    <td>@item.sourceOptions</td>
+                    <td>@item.sourceId</td>
                 </tr>
             }
         </table>
-    </div>
+    </div>*@
 @*Table for Network info*@
 <div>
     <table>
@@ -97,6 +101,60 @@
                 <td>@item.MACAddress</td>
                 <td>@item.IPv4Address</td>
                 <td>@item.IPv6Address</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <th>System Time</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Time</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <th>Contact Name</th>
+            <th>Contact Number</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Number</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <th>Peripheral Hardware Info</th>
+            <th>Peripheral ID</th>
+            <th>Peripheral Name</th>
+            <th>Peripheral Software Info</th>
+            <th>Peripheral Status</th>
+            <th>Peripheral Type</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PeriHardware</td>
+                <td>@item.PeriID</td>
+                <td>@item.PeriName</td>
+                <td>@item.PeriSoftware</td>
+                <td>@item.PeriStatus</td>
+                <td>@item.PeriType</td>
             </tr>
         }
     </table>

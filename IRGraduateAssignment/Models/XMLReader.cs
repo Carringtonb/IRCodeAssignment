@@ -54,18 +54,46 @@ namespace IRGraduateAssignment.Models
                     IPv4Address = (string)nw.Element("IPv4").Element("Address"),
                     IPv6Address = (string)nw.Element("IPv6").Element("Address") 
                 };
-            //TODO finish capabilities method, not getting correct child node elements currently
-            //var capabilities =
-            //    from cp in doc.Root.DescendantsAndSelf("Capabilities")
-            //    select new
-            //    {
-            //        Mode = (string)cp.Element("FECC").Element("Mode"),
-            //        Hold = (string)cp.Element("Hold"),
-            //        Presentation = (string)cp.Element("Presentation"),
-            //        SourceName = (string)cp.Element("FECC").Element("Source")
-            //    };
 
-            List < SystemUnit > list = new List<SystemUnit>();
+            var systemTime =
+                from st in doc.Root.Elements("Time")
+                select new
+                {
+                    SystemTime = (string)st.Element("SystemTime")
+                };
+
+            var contact =
+                from ct in doc.Root.Elements("UserInterface")
+                select new
+                {
+                    Name = (string)ct.Element("ContactInfo").Element("Name"),
+                    Number = (string)ct.Element("ContactInfo").Element("ContactMethod").Element("Number")
+                };
+
+            var peri =
+                from pr in doc.Root.Elements("Peripherals")
+                select new
+                {
+                    PeriHardware = (string)pr.Element("ConnectedDevice").Element("HardwareInfo"),
+                    PeriId = (string)pr.Element("ConnectedDevice").Element("ID"),
+                    PeriName = (string)pr.Element("ConnectedDevice").Element("Name"),
+                    PeriSoftware = (string)pr.Element("ConnectedDevice").Element("SoftwareInfo"),
+                    Peristatus = (string)pr.Element("ConnectedDevice").Element("Status"),
+                    PeriType = (string)pr.Element("ConnectedDevice").Element("Type")
+                };
+
+        //TODO finish capabilities method, not getting correct child node elements currently
+        //var capabilities =
+        //    from cp in doc.Root.DescendantsAndSelf("Capabilities")
+        //    select new
+        //    {
+        //        Mode = (string)cp.Element("FECC").Element("Mode"),
+        //        Hold = (string)cp.Element("Hold"),
+        //        Presentation = (string)cp.Element("Presentation"),
+        //        SourceName = (string)cp.Element("FECC").Element("Source")
+        //    };
+
+        List < SystemUnit > list = new List<SystemUnit>();
 
             foreach (var op in dataLog)
             {
@@ -123,6 +151,39 @@ namespace IRGraduateAssignment.Models
                 list.Add(network);
             }
 
+            foreach (var st in systemTime)
+            {
+                SystemUnit time = new SystemUnit
+                {
+                    Time = st.SystemTime
+                };
+                list.Add(time);
+            }
+
+            foreach (var ct in contact)
+            {
+                SystemUnit contactDetails = new SystemUnit
+                {
+                    Name = ct.Name,
+                    Number = ct.Number
+                };
+                list.Add(contactDetails);
+            }
+
+            foreach (var pr in peri)
+            {
+                SystemUnit peripherals = new SystemUnit
+                {
+                    PeriHardware = pr.PeriHardware,
+                    PeriID = pr.PeriId,
+                    PeriName = pr.PeriName,
+                    PeriSoftware = pr.PeriSoftware,
+                    PeriStatus = pr.Peristatus,
+                    PeriType = pr.PeriType
+                };
+                list.Add(peripherals);
+            }
+
             return list;
 
         }
@@ -157,7 +218,17 @@ namespace IRGraduateAssignment.Models
             public string IPv4Address { get; set; }
             public string IPv6Address { get; set; }
             //properties for system time
-            public DateTime Time { get; set; }
+            public string Time { get; set; }
+            //properties for contact info
+            public string Number { get; set; }
+            public string Name { get; set; }
+            //properties for peripherals
+            public string PeriHardware { get; set; }
+            public string PeriID { get; set; }
+            public string PeriName { get; set; }
+            public string PeriSoftware { get; set; }
+            public string PeriStatus { get; set; }
+            public string PeriType { get; set; }
         }
     }
 }
