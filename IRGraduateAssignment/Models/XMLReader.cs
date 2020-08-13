@@ -42,19 +42,30 @@ namespace IRGraduateAssignment.Models
                    DisplayName = (string)cd.Element("DisplayName"),
                    Duration = (string)cd.Element("Duration")
                };
-            //TODO finish capabilities method, not getting correct child node elements currently
-            var capabilities =
-                from cp in doc.Root.DescendantsAndSelf("Capabilities")
+
+            var networkDetails =
+                from nw in doc.Root.Descendants("Network")
                 select new
                 {
-                    Options = (string)cp.Element("Options"),
-                    Name = (string)cp.Element("Name"),
-                    SourceId = (string)cp.Element("SourceId"),
-                    Mode = (string)cp.Element("Mode"),
-                    Status = (string)cp.Element("Status")
+                    Address = (string)nw.Element("CDP").Element("Address"),
+                    DeviceID = (string)nw.Element("CDP").Element("DeviceId"),
+                    Platform = (string)nw.Element("CDP").Element("Platform"),
+                    MACAddress = (string)nw.Element("Ethernet").Element("MacAddress"),
+                    IPv4Address = (string)nw.Element("IPv4").Element("Address"),
+                    IPv6Address = (string)nw.Element("IPv6").Element("Address") 
                 };
-       
-        List < SystemUnit > list = new List<SystemUnit>();
+            //TODO finish capabilities method, not getting correct child node elements currently
+            //var capabilities =
+            //    from cp in doc.Root.DescendantsAndSelf("Capabilities")
+            //    select new
+            //    {
+            //        Mode = (string)cp.Element("FECC").Element("Mode"),
+            //        Hold = (string)cp.Element("Hold"),
+            //        Presentation = (string)cp.Element("Presentation"),
+            //        SourceName = (string)cp.Element("FECC").Element("Source")
+            //    };
+
+            List < SystemUnit > list = new List<SystemUnit>();
 
             foreach (var op in dataLog)
             {
@@ -86,17 +97,30 @@ namespace IRGraduateAssignment.Models
                 list.Add(call);
             }
 
-            foreach (var cp in capabilities)
+            //foreach (var cp in capabilities)
+            //{
+            //    SystemUnit cap = new SystemUnit
+            //    {
+            //        Mode = cp.Mode,
+            //        Hold = cp.Hold,
+            //        Presentation = cp.Presentation,
+            //        SourceName = cp.SourceName
+            //    };
+            //    list.Add(cap);
+            //}
+
+            foreach (var nw in networkDetails)
             {
-                SystemUnit cap = new SystemUnit
+                SystemUnit network = new SystemUnit
                 {
-                    Options = cp.Options,
-                    Name = cp.Name,
-                    SourceID = cp.SourceId,
-                    Mode = cp.Mode,
-                    Status = cp.Status
+                    Address = nw.Address,
+                    DeviceID = nw.DeviceID,
+                    Platform = nw.Platform,
+                    MACAddress = nw.MACAddress,
+                    IPv4Address = nw.IPv4Address,
+                    IPv6Address = nw.IPv6Address == "" ? "No Value" : nw.IPv6Address
                 };
-                list.Add(cap);
+                list.Add(network);
             }
 
             return list;
@@ -121,11 +145,19 @@ namespace IRGraduateAssignment.Models
             public string DisplayName { get; set; }
             public string Duration { get; set; }
             //properties for the capabilities
-            public string Options { get; set; }
-            public string Name { get; set; }
-            public string SourceID { get; set; }
             public string Mode { get; set; }
-            public string Status { get; set; }
+            public string Hold { get; set; }
+            public string Presentation { get; set; }
+            public string SourceName { get; set; }
+            // properties for network info
+            public string Address { get; set; }
+            public string DeviceID { get; set; }
+            public string Platform { get; set; }
+            public string MACAddress { get; set; }
+            public string IPv4Address { get; set; }
+            public string IPv6Address { get; set; }
+            //properties for system time
+            public DateTime Time { get; set; }
         }
     }
 }
