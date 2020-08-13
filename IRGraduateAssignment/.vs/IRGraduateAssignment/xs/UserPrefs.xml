@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{5F2A33E8-2D77-4499-A188-0B65F0345497}|IRGraduateAssignment">
   <MonoDevelop.Ide.ItemProperties.IRGraduateAssignment PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Home/Results.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/XMLReader.cs">
     <Files>
-      <File FileName="Models/XMLReader.cs" Line="151" Column="13" />
+      <File FileName="Models/XMLReader.cs" Line="159" Column="17" />
       <File FileName="Models/Call.cs" Line="6" Column="9" />
       <File FileName="Models/Capabilities.cs" Line="11" Column="9" />
-      <File FileName="Views/Home/Results.cshtml" Line="37" Column="1" />
+      <File FileName="Views/Home/Results.cshtml" Line="66" Column="30" />
+      <File FileName="Models/Network.cs" Line="6" Column="8" />
+      <File FileName="Models/SystemTime.cs" Line="6" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,11 +15,11 @@
           <Node name="IRGraduateAssignment" expanded="True">
             <Node name="IRGraduateAssignment" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="XMLReader.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True">
-                  <Node name="Results.cshtml" selected="True" />
-                </Node>
+                <Node name="Home" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -28,7 +30,10 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/carringtonbeard/codefellows/401/IRCodeAssignment/IRGraduateAssignment/Models/XMLReader.cs" relfile="Models/XMLReader.cs" line="114" column="1" />
+      <Breakpoint file="/Users/carringtonbeard/codefellows/401/IRCodeAssignment/IRGraduateAssignment/Models/XMLReader.cs" relfile="Models/XMLReader.cs" line="58" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
