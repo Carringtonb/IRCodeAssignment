@@ -21,14 +21,83 @@
         </tr>
         @foreach (var item in Model)
         {
+            <tr>
+                <td>@item.ProductID</td>
+                <td>@item.ProductPlatform</td>
+                <td>@item.ProductType</td>
+                <td>@item.SoftwareDetails</td>
+                <td>@item.DiagnosticInformation</td>
+                <td>@item.State</td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>Answer State</th>
+            <th>Call Type</th>
+            <th>Callback Number</th>
+            <th>Device Type</th>
+            <th>Direction</th>
+            <th>Display Name</th>
+            <th>Duration</th>
+        </tr>
+        @foreach (var item in Model)
+        {
     <tr>
-        <td>@item.ProductID</td>
-        <td>@item.ProductPlatform</td>
-        <td>@item.ProductType</td>
-        <td>@item.SoftwareDetails</td>
-        <td>@item.DiagnosticInformation</td>
-        <td>@item.State</td>
+        <td>@item.AnswerState</td>
+        <td>@item.CallType</td>
+        <td>@item.CallbackNum</td>
+        <td>@item.DeviceType</td>
+        <td>@item.Direction</td>
+        <td>@item.DisplayName</td>
+        <td>@item.Duration</td>
     </tr>
         }
     </table>
 </div>
+<div>
+    <table>
+        <tr>
+            <th>Options</th>
+            <th>Name</th>
+            <th>Source Id</th>
+            <th>Mode</th>
+            <th>Status</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Options</td>
+                <td>@item.Name</td>
+                <td>@item.SourceID</td>
+                <td>@item.Mode>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+@*// properties for the system unit
+            public string ProductID { get; set; }
+            public string ProductPlatform { get; set; }
+            public string ProductType { get; set; }
+            public string SoftwareDetails { get; set; }
+            public string DiagnosticInformation { get; set; }
+            public string State { get; set; }
+            //properties for the call
+            public string AnswerState { get; set; }
+            public string CallType { get; set; }
+            public string CallbackNum { get; set; }
+            public string DeviceType { get; set; }
+            public string Direction { get; set; }
+            public string DisplayName { get; set; }
+            public string Duration { get; set; }
+            //properties for the capabilities
+            public string Options { get; set; }
+            public string Name { get; set; }
+            public string SourceID { get; set; }
+            public string Mode { get; set; }
+            public string Status { get; set; }*@
