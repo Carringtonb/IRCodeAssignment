@@ -36,6 +36,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Westwind.AspnetCore.LiveReload": {
+              "target": "Package",
+              "version": "[0.2.5, )"
+            },
             "bootstrap": {
               "target": "Package",
               "version": "[4.5.2, )"
