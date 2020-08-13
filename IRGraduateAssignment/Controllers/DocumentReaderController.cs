@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Xml;
 using System.Xml.Linq;
-using static IRGraduateAssignment.Models.XMLReader;
+using IRGraduateAssignment.Models;
 
-namespace IRGraduateAssignment.Models
+namespace IRGraduateAssignment.Controllers
 {
-    public class XMLReader
+    public class DocumentReaderController
     {
         public static List<SystemUnit> ReadFile()
         {
@@ -93,15 +92,6 @@ namespace IRGraduateAssignment.Models
                 CallList.Add(call);
             }
             return CallList;
-        }
-        public class SystemUnit
-        {
-            public string ProductID { get; set; }
-            public string ProductPlatform { get; set; }
-            public string ProductType { get; set; }
-            public string SoftwareDetails { get; set; }
-            public string DiagnosticInformation { get; set; }
-            public string State { get; set; }
         }
     }
 }
