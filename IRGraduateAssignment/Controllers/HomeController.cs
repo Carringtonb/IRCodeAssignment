@@ -27,11 +27,6 @@ namespace IRGraduateAssignment.Controllers
             List<XMLReader.SystemUnit> systemUnit = XMLReader.ReadFile();
             return View(systemUnit);
         }
-        
-        public IActionResult Capabilities()
-        {
-            //List<XMLReader.SystemUnit> systemUnit = XMLReader.ReadFile();
-            return View();
-        }
+
     }
 }

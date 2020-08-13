@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "lmCqmvWmhSk12JO4jlEUFIbJ0DXg8cM7cOkR1WeH3Kb9CF8wn3wxkyVnJiuHg+jVPIGob5fzcL0IQUhh6KyMXA==",
+  "dgSpecHash": "69+NOPMrZ9XFYnqhMloCf8wd2BACKihbkFpj5fZK2YfIrRyd2SUXEtnAhYz1tv+Ct22rGgKaByGYZwfggSOISw==",
   "success": true,
   "projectFilePath": "/Users/carringtonbeard/codefellows/401/IRCodeAssignment/IRGraduateAssignment/IRGraduateAssignment.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/carringtonbeard/.nuget/packages/bootstrap/4.5.2/bootstrap.4.5.2.nupkg.sha512",
+    "/Users/carringtonbeard/.nuget/packages/jquery/3.0.0/jquery.3.0.0.nupkg.sha512",
+    "/Users/carringtonbeard/.nuget/packages/popper.js/1.16.1/popper.js.1.16.1.nupkg.sha512"
+  ],
   "logs": []
 }
