@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IRGraduateAssignment.Controllers
 {
+    
     public class HomeController : Controller
     {
         [HttpGet]
@@ -23,8 +24,9 @@ namespace IRGraduateAssignment.Controllers
 
         public IActionResult Results()
         {
-            XMLReader.ReadFile();
-            return View();
+            List<XMLReader.SystemUnit> systemUnit = XMLReader.ReadFile();
+            return View(systemUnit);
         }
+
     }
 }

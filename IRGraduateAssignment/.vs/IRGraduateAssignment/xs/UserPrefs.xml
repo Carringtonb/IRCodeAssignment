@@ -1,39 +1,35 @@
 ﻿<Properties StartupConfiguration="{5F2A33E8-2D77-4499-A188-0B65F0345497}|IRGraduateAssignment">
   <MonoDevelop.Ide.ItemProperties.IRGraduateAssignment PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/status.xml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/XMLReader.cs">
     <Files>
-      <File FileName="Models/Capabilities.cs" Line="48" Column="44" NotebookId="1" />
-      <File FileName="Models/ContactInfo.cs" NotebookId="1" />
-      <File FileName="Models/Network.cs" NotebookId="1" />
-      <File FileName="Models/Peripherals.cs" NotebookId="1" />
-      <File FileName="Models/SystemTime.cs" NotebookId="1" />
-      <File FileName="Models/SystemUnit.cs" NotebookId="1" />
-      <File FileName="Startup.cs" Line="46" Column="34" NotebookId="1" />
-      <File FileName="Program.cs" NotebookId="1" />
-      <File FileName="Models/XMLReader.cs" Line="27" Column="14" NotebookId="1" />
-      <File FileName="Controllers/HomeController.cs" Line="30" Column="1" NotebookId="1" />
-      <File FileName="Views/Home/Index.cshtml" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Views/Home/Results.cshtml" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Views/Home/Results.cshtml" Line="19" Column="59" />
+      <File FileName="Views/Home/Index.cshtml" />
+      <File FileName="Controllers/HomeController.cs" />
+      <File FileName="Program.cs" />
+      <File FileName="Startup.cs" />
+      <File FileName="Pages/_ViewStart.cshtml" />
+      <File FileName="../../../../.nuget/packages/bootstrap/4.5.2/contentFiles/any/any/wwwroot/css/bootstrap.css" />
+      <File FileName="wwwroot/css/site.css" />
+      <File FileName="Models/XMLReader.cs" Line="170" Column="1" />
     </Files>
-    <FloatingWindows>
-      <FloatingWindow WindowId="1" X="1701" Y="74" Width="1611" Height="871">
-        <Files>
-          <File FileName="wwwroot/status.xml" Line="1" Column="1" />
-        </Files>
-      </FloatingWindow>
-    </FloatingWindows>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="IRGraduateAssignment" expanded="True">
             <Node name="IRGraduateAssignment" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="XMLReader.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
-                <Node name="status.xml" selected="True" />
+                <Node name="css" expanded="True">
+                  <Node name="bootstrap.css" expanded="True" />
+                </Node>
+                <Node name="js" expanded="True" />
               </Node>
             </Node>
           </Node>

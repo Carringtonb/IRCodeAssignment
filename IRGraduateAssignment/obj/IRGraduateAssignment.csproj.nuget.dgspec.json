@@ -35,6 +35,20 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Westwind.AspnetCore.LiveReload": {
+              "target": "Package",
+              "version": "[0.2.5, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.5.2, )"
+            },
+            "jQuery": {
+              "target": "Package",
+              "version": "[3.5.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

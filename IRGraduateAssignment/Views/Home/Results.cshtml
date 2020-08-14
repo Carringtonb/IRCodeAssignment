@@ -1,32 +1,184 @@
-﻿@model List<IRGraduateAssignment.Models.Capabilities>
+﻿@model List<IRGraduateAssignment.Models.XMLReader.SystemUnit>
 
 <!Doctype html>
+<header>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @*this block of code will refresh the page and its data every 60 seconds / 1 minute*@
+    <meta http-equiv="refresh" content="60">
+</header>
+
 <head>
-    <title>Time Person of the Year Results</title>
+    <title>Cisco Video Endpoints Diagnostics</title>
 </head>
 
+@*<link rel="stylesheet" href="~/Styles/StyleSheet.css" />*@
+<!--Traverse through the Model and output each of the line items in the xml file.-->
+@*Table for System Info*@
+<body style="background-color: lightgray">
+    <h1 class="text-center">New Call Data coming in: </h1>
+    <div id="timerLabel" class="text-center" runat="server" style="text-align:center; font-size:3em">60</div>
 
-<link rel="stylesheet" href="~/Styles/StyleSheet.css" />
-<!--Traverse through the Model and output each of the line items in the csv file.-->
-<!--9 columns. output each line item-->
-<div>
-    <table>
-        <tr>
-            <th>Status</th>
-            <th>Mode</th>
-            <th>Name</th>
-            <th>Options</th>
-            <th>SourceID</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Status</td>
-                <td>@item.Mode</td>
-                <td>@item.Name</td>
-                <td>@item.Options</td>
-                <td>@item.SourceID</td>
-            </tr>
+    <script type="text/javascript">function countdown() {
+            seconds = document.getElementById("timerLabel").innerHTML;
+            if (seconds > 0) {
+                document.getElementById("timerLabel").innerHTML = seconds - 1;
+                setTimeout("countdown()", 1000);
+            }
         }
-    </table>
-</div>
+        setTimeout("countdown()", 1000);</script>
+    <div style="padding-top: 2rem">
+        <table class="table table-dark">
+            <tr>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Product Id</th>
+                <th>Product Platform</th>
+                <th>Product Type</th>
+                <th>Software Name</th>
+                <th>Software Release Date</th>
+                <th>Software Version</th>
+                <th>State</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+        <tr>
+            @if (!String.IsNullOrEmpty(item.ProductID)) { <td> @item.ProductID </td>}
+            @if (!String.IsNullOrEmpty(item.ProductPlatform)){<td> @item.ProductPlatform </td>}
+            @if (!String.IsNullOrEmpty(item.ProductType)){<td> @item.ProductType </td>}
+            @if (!String.IsNullOrEmpty(item.SoftwareName)){<td> @item.SoftwareName </td>}
+            @if (!String.IsNullOrEmpty(item.SoftwareRelease)){<td> @item.SoftwareRelease </td>}
+            @if (!String.IsNullOrEmpty(item.SoftwareVersion)){<td> @item.SoftwareVersion </td>}
+            @if (!String.IsNullOrEmpty(item.State)){<td> @item.State </td>}
+        </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Diagnostics Last Run</th>
+                <th>Diagnostics Description</th>
+                <th>Diagnostics Level</th>
+                <th>Diagnostics Reference</th>
+                <th>Diagnostics Type</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+        <tr>
+            @if (!String.IsNullOrEmpty(item.DiaLastRun)){<td> @item.DiaLastRun </td>}
+            @if (!String.IsNullOrEmpty(item.DiaDescription)){<td> @item.DiaDescription </td>}
+            @if (!String.IsNullOrEmpty(item.DiaLevel) && item.DiaLevel == "Error"){<td style="color: red"> @item.DiaLevel </td>}
+            @if (!String.IsNullOrEmpty(item.DiaLevel) && item.DiaLevel != "Error"){<td style="color: green"> @item.DiaLevel </td>}
+            @if (!String.IsNullOrEmpty(item.DiaReference)){<td> @item.DiaReference </td>}
+            @if (!String.IsNullOrEmpty(item.DiaType) && item.DiaType == "MicrophoneDisconnected"){<td style="color: red"> @item.DiaType </td>}
+            @if (!String.IsNullOrEmpty(item.DiaType) && item.DiaType != "MicrophoneDisconnected"){<td style="color: green"> @item.DiaType </td>}
+        </tr>
+            }
+        </table>
+    </div>
+    @*Table for call information*@
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Answer State</th>
+                <th>Call Type</th>
+                <th>Callback Number</th>
+                <th>Device Type</th>
+                <th>Direction</th>
+                <th>Display Name</th>
+                <th>Duration</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.AnswerState) && item.AnswerState == "Answered"){<td style="color: green"> @item.AnswerState </td>}
+                    @if (!String.IsNullOrEmpty(item.AnswerState) && item.AnswerState != "Answered"){<td style="color: red"> @item.AnswerState </td>}
+                    @if (!String.IsNullOrEmpty(item.CallType)){<td> @item.CallType </td>}
+                    @if (!String.IsNullOrEmpty(item.CallbackNum)){<td> @item.CallbackNum </td>}
+                    @if (!String.IsNullOrEmpty(item.DeviceType)){<td> @item.DeviceType </td>}
+                    @if (!String.IsNullOrEmpty(item.Direction)){<td> @item.Direction </td>}
+                    @if (!String.IsNullOrEmpty(item.DisplayName)){<td> @item.DisplayName </td>}
+                    @if (!String.IsNullOrEmpty(item.Duration)){<td> @item.Duration </td>}
+                </tr>
+            }
+        </table>
+    </div>
+    @*Table for Network info*@
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Device ID</th>
+                <th>Platform</th>
+                <th>MAC Address</th>
+                <th>IPv4 Address</th>
+                <th>Ipv6 Address</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.DeviceID)){<td> @item.DeviceID </td>}
+                    @if (!String.IsNullOrEmpty(item.Platform)){<td> @item.Platform </td>}
+                    @if (!String.IsNullOrEmpty(item.MACAddress)){<td> @item.MACAddress </td>}
+                    @if (!String.IsNullOrEmpty(item.IPv4Address)){<td> @item.IPv4Address</td>}
+                    @if (!String.IsNullOrEmpty(item.IPv6Address) && item.IPv6Address == "No Value"){<td style="color: red"> @item.IPv6Address </td>}
+                    @if (!String.IsNullOrEmpty(item.IPv6Address) && item.IPv6Address != "No Value"){<td style="color: green"> @item.IPv6Address </td>}
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Peripheral Hardware Info</th>
+                <th>Peripheral ID</th>
+                <th>Peripheral Name</th>
+                <th>Peripheral Software Info</th>
+                <th>Peripheral Status</th>
+                <th>Peripheral Type</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.PeriHardware)){<td> @item.PeriHardware </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriID)){<td> @item.PeriID </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriName)){<td> @item.PeriName </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriSoftware)){<td> @item.PeriSoftware </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriStatus) && item.PeriStatus == "Connected"){<td style="color: green"> @item.PeriStatus </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriStatus) && item.PeriStatus != "Connected"){<td style="color: red"> @item.PeriStatus </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriType)){<td> @item.PeriType </td>}
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Contact Name</th>
+                <th>Contact Number</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.Name)){<td> @item.Name </td>}
+                    @if (!String.IsNullOrEmpty(item.Number)){<td> @item.Number </td>}
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> System Time</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.Time)){<td> @item.Time </td>}
+                </tr>
+            }
+        </table>
+    </div>
+</body>
