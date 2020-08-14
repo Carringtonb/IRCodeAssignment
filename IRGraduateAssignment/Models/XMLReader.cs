@@ -21,20 +21,32 @@ namespace IRGraduateAssignment.Models
             var doc = XDocument.Load(newPath);
 
 
-            var dataLog =
+        var dataLog =
                 from op in doc.Root.Elements("SystemUnit")
                 select new
                 {
                     ProductId = (string)op.Element("ProductId"),
                     ProductPlatform = (string)op.Element("ProductPlatform"),
                     ProductType = (string)op.Element("ProductType"),
-                    Software = (string)op.Element("Software"),
-                    Diagnostics = (string)op.Element("Diagnostics"),
+                    SoftwareName = (string)op.Element("Software").Element("Name"),
+                    SoftwareRelease = (string)op.Element("Software").Element("ReleaseDate"),
+                    SoftwareVersion = (string)op.Element("Software").Element("Version"),
                     State = (string)op.Element("State")
 
                 };
 
-            var callDetails =
+        var dia =
+                from di in doc.Root.Descendants("SystemUnit").Elements("Diagnostics")
+                select new
+                {
+                    DiaLastRun = (string)di.Element("LastRun"),
+                    DiaDescription = (string)di.Element("Message").Element("Description"),
+                    DiaLevel = (string)di.Element("Message").Element("Level"),
+                    DiaReference = (string)di.Element("Message").Element("References"),
+                    DiaType = (string)di.Element("Message").Element("Type")
+                };
+
+        var callDetails =
                from cd in doc.Root.Elements("Call")
                select new
                {
@@ -92,16 +104,30 @@ namespace IRGraduateAssignment.Models
             {
                 SystemUnit systemUnit = new SystemUnit
                 {
-                    DiagnosticInformation = op.Diagnostics,
                     ProductID = op.ProductId,
                     ProductPlatform = op.ProductPlatform,
                     ProductType = op.ProductType,
-                    SoftwareDetails = op.Software,
+                    SoftwareName = op.SoftwareName,
+                    SoftwareRelease = op.SoftwareRelease,
+                    SoftwareVersion = op.SoftwareVersion,
                     State = op.State
                 };
 
                 list.Add(systemUnit);
             };
+
+            foreach (var di in dia)
+            {
+                SystemUnit diagnostics = new SystemUnit
+                {
+                    DiaLastRun = di.DiaLastRun,
+                    DiaDescription = di.DiaDescription,
+                    DiaLevel = di.DiaLevel,
+                    DiaReference = di.DiaReference == "" ? "No Reference Available" : di.DiaReference,
+                    DiaType = di.DiaType
+                };
+                list.Add(diagnostics);
+            }
 
             foreach (var cd in callDetails)
             {
@@ -175,9 +201,16 @@ namespace IRGraduateAssignment.Models
             public string ProductID { get; set; }
             public string ProductPlatform { get; set; }
             public string ProductType { get; set; }
-            public string SoftwareDetails { get; set; }
-            public string DiagnosticInformation { get; set; }
+            public string SoftwareName { get; set; }
+            public string SoftwareRelease { get; set; }
+            public string SoftwareVersion { get; set; }
             public string State { get; set; }
+            //properties for diagnostics
+            public string DiaLastRun { get; set; }
+            public string DiaDescription { get; set; }
+            public string DiaLevel { get; set; }
+            public string DiaReference { get; set; }
+            public string DiaType { get; set; }
             //properties for the call
             public string AnswerState { get; set; }
             public string CallType { get; set; }
