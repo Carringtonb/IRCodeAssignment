@@ -43,6 +43,10 @@
             "bootstrap": {
               "target": "Package",
               "version": "[4.5.2, )"
+            },
+            "jQuery": {
+              "target": "Package",
+              "version": "[3.5.1, )"
             }
           },
           "imports": [

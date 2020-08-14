@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ijZpV1FygVyhPRKmzxi0dnuNFElWTBEh2TSTVIRze/OoxMoHPQ3Y/zFfHqvAGetgJLGUq7no0W4j5KEY/TBehw==",
+  "dgSpecHash": "bgCekUbWrOffp7lolKfiSxCmOQC5113O+SYkfudKslW1Z0HNtqi8GzWxIcAx27+HHWigb7AUVPPjM3oEyXFO6A==",
   "success": true,
   "projectFilePath": "/Users/carringtonbeard/codefellows/401/IRCodeAssignment/IRGraduateAssignment/IRGraduateAssignment.csproj",
   "expectedPackageFiles": [
     "/Users/carringtonbeard/.nuget/packages/bootstrap/4.5.2/bootstrap.4.5.2.nupkg.sha512",
-    "/Users/carringtonbeard/.nuget/packages/jquery/3.0.0/jquery.3.0.0.nupkg.sha512",
+    "/Users/carringtonbeard/.nuget/packages/jquery/3.5.1/jquery.3.5.1.nupkg.sha512",
     "/Users/carringtonbeard/.nuget/packages/popper.js/1.16.1/popper.js.1.16.1.nupkg.sha512",
     "/Users/carringtonbeard/.nuget/packages/westwind.aspnetcore.livereload/0.2.5/westwind.aspnetcore.livereload.0.2.5.nupkg.sha512"
   ],
