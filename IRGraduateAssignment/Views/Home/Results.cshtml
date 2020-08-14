@@ -1,19 +1,35 @@
 ﻿@model List<IRGraduateAssignment.Models.XMLReader.SystemUnit>
+@using IRGraduateAssignment.Models
+@{
+    List<String> Peripheral = new List<String>();
+    foreach (var item in Model)
+    {
+        Peripheral.Add(item.PeriHardware);
+        Peripheral.Add(item.PeriID);
+        Peripheral.Add(item.PeriName);
+        Peripheral.Add(item.PeriSoftware);
+        Peripheral.Add(item.PeriStatus);
+        Peripheral.Add(item.PeriType);
+    };
+
+}
 
 <!Doctype html>
 <header>
-    <meta http-equiv="refresh" content="10">
+    @*this block of code will refresh the page and its data every 60 seconds / 1 minute*@
+    <meta http-equiv="refresh" content="60">
 </header>
 <head>
-    <title>Time Person of the Year Results</title>
+    <title>Cisco Video Endpoints Diagnostics</title>
 </head>
 
-
-<link rel="stylesheet" href="~/Styles/StyleSheet.css" />
-<!--Traverse through the Model and output each of the line items in the csv file.-->
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<!--<link rel="stylesheet" href="~/Styles/StyleSheet.css" />-->
+<!--Traverse through the Model and output each of the line items in the xml file.-->
 @*Table for System Info*@
 <div>
-    <table>
+    <table class="table table-dark">
         <tr>
             <th>Product Id</th>
             <th>Product Platform</th>
@@ -24,6 +40,10 @@
         </tr>
         @foreach (var item in Model)
         {
+            if(item == null)
+            {
+                <tr style="display:none"></tr>
+            }
             <tr>
                 <td>@item.ProductID</td>
                 <td>@item.ProductPlatform</td>
@@ -37,7 +57,7 @@
 </div>
 @*Table for call information*@
 <div>
-    <table>
+    <table class="table table-dark">
         <tr>
             <th>Answer State</th>
             <th>Call Type</th>
@@ -50,7 +70,14 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.AnswerState</td>
+                @if (item.AnswerState == "Answered")
+                {
+                <td style="color: green">@item.AnswerState</td>
+                }
+                else
+                {
+                    <td style="color: red">@item.AnswerState</td>
+                }
                 <td>@item.CallType</td>
                 <td>@item.CallbackNum</td>
                 <td>@item.DeviceType</td>
@@ -63,7 +90,7 @@
 </div>
 @*Table for Network info*@
 <div>
-    <table>
+    <table class="table table-dark">
         <tr>
             <th>Device ID</th>
             <th>Platform</th>
@@ -78,44 +105,21 @@
                 <td>@item.Platform</td>
                 <td>@item.MACAddress</td>
                 <td>@item.IPv4Address</td>
-                <td>@item.IPv6Address</td>
+                @if (item.IPv6Address == "No Value")
+                {
+                    <td style="color : red">@item.IPv6Address</td>
+                }
+                else
+                {
+                    <td>@item.IPv6Address</td>
+                }
             </tr>
         }
     </table>
 </div>
 
 <div>
-    <table>
-        <tr>
-            <th>System Time</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Time</td>
-            </tr>
-        }
-    </table>
-</div>
-
-<div>
-    <table>
-        <tr>
-            <th>Contact Name</th>
-            <th>Contact Number</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Number</td>
-            </tr>
-        }
-    </table>
-</div>
-
-<div>
-    <table>
+    <table class="table table-dark">
         <tr>
             <th>Peripheral Hardware Info</th>
             <th>Peripheral ID</th>
@@ -126,13 +130,39 @@
         </tr>
         @foreach (var item in Model)
         {
+    <tr>
+        <td>@item.PeriHardware</td>
+        <td>@item.PeriID</td>
+        <td>@item.PeriName</td>
+        <td>@item.PeriSoftware</td>
+        @if (item.PeriStatus == "Connected")
+        {
+            <td style="color: green">@item.PeriStatus</td>
+        }
+        else
+        {
+            <td style="color: red">@item.PeriStatus</td>
+        }
+        <td>@item.PeriType</td>
+    </tr>
+
+        }
+    </table>
+</div>
+
+<div>
+    <table class="table table-dark">
+        <tr>
+            <th>System Time</th>
+            <th>Contact Name</th>
+            <th>Contact Number</th>
+        </tr>
+        @foreach (var item in Model)
+        {
             <tr>
-                <td>@item.PeriHardware</td>
-                <td>@item.PeriID</td>
-                <td>@item.PeriName</td>
-                <td>@item.PeriSoftware</td>
-                <td>@item.PeriStatus</td>
-                <td>@item.PeriType</td>
+                <td>@item.Time</td>
+                <td>@item.Name</td>
+                <td>@item.Number</td>
             </tr>
         }
     </table>
