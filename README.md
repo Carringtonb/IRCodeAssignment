@@ -50,7 +50,7 @@ The dotnet tools will automatically restore any NuGet dependencies. Before runni
 ---
 ## Design Diagram
 
-![IRGraduationDesign.pdf](https://github.com/Carringtonb/401-readingNotes/files/5075704/IRGraduationDesign.pdf)
+![IRGraduationDesign.pdf](https://i.imgur.com/jPyrXFV.png)
 
 
 ## Usage
