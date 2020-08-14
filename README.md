@@ -50,16 +50,16 @@ The dotnet tools will automatically restore any NuGet dependencies. Before runni
 ## Usage
 
 ### Home page with links to LinkedIn and Github
-![Home page](https://imgur.com/lymt5jJ)
+![Home page].(https://imgur.com/lymt5jJ)
 
 ### Upper half of the data tables showing timer at almost full time
-![Upper half of data](https://imgur.com/NwZclvU)
+![Upper half of data].(https://imgur.com/NwZclvU)
 
 ### Lower half of the data tables
-![Lower half of data](https://imgur.com/kvIpIrK)
+![Lower half of data].(https://imgur.com/kvIpIrK)
 
 ### Data rendered with countdown decrementing
-![Data page with countdown working](https://imgur.com/GBN9Dzn)
+![Data page with countdown working].(https://imgur.com/GBN9Dzn)
 
 ---
 
