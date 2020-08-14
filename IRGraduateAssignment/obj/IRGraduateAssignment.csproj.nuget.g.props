@@ -158,6 +158,6 @@
     </Content>
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">/Users/carringtonbeard/.nuget/packages/jquery/3.0.0</PkgjQuery>
+    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">/Users/carringtonbeard/.nuget/packages/jquery/3.5.1</PkgjQuery>
   </PropertyGroup>
 </Project>

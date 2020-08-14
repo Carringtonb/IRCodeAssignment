@@ -1,21 +1,9 @@
 ﻿@model List<IRGraduateAssignment.Models.XMLReader.SystemUnit>
-@*@using IRGraduateAssignment.Models
-@{
-    List<String> Peripheral = new List<String>();
-    foreach (var item in Model)
-    {
-        Peripheral.Add(item.PeriHardware);
-        Peripheral.Add(item.PeriID);
-        Peripheral.Add(item.PeriName);
-        Peripheral.Add(item.PeriSoftware);
-        Peripheral.Add(item.PeriStatus);
-        Peripheral.Add(item.PeriType);
-    };
-
-}*@
 
 <!Doctype html>
 <header>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
     @*this block of code will refresh the page and its data every 60 seconds / 1 minute*@
     <meta http-equiv="refresh" content="60">
 </header>
@@ -23,139 +11,238 @@
     <title>Cisco Video Endpoints Diagnostics</title>
 </head>
 
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="~/css/site.css" />
 @*<link rel="stylesheet" href="~/Styles/StyleSheet.css" />*@
 <!--Traverse through the Model and output each of the line items in the xml file.-->
 @*Table for System Info*@
-<div>
-    <table class="table table-dark">
-        <tr>
-            <th>Product Id</th>
-            <th>Product Platform</th>
-            <th>Product Type</th>
-            <th>Software Details</th>
-            <th>Diagnostics Information</th>
-            <th>State</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                @if (!String.IsNullOrEmpty(item.ProductID)) {<td> @item.ProductID </td>}
-                @if (!String.IsNullOrEmpty(item.ProductPlatform)) {<td> @item.ProductPlatform </td>}
-                @if (!String.IsNullOrEmpty(item.ProductType)) {<td> @item.ProductType </td>}
-                @if (!String.IsNullOrEmpty(item.SoftwareDetails)) {<td> @item.SoftwareDetails </td>}
-                @if (!String.IsNullOrEmpty(item.DiagnosticInformation)) {<td> @item.DiagnosticInformation </td>} 
-                @if (!String.IsNullOrEmpty(item.State))  {<td> @item.State </td>}
-            </tr>
-        }
-    </table>
-</div>
-@*Table for call information*@
-<div>
-    <table class="table table-dark">
-        <tr>
-            <th>Answer State</th>
-            <th>Call Type</th>
-            <th>Callback Number</th>
-            <th>Device Type</th>
-            <th>Direction</th>
-            <th>Display Name</th>
-            <th>Duration</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                @*@if (item.AnswerState == "Answered")
-                {
-                <td style="color: green">@item.AnswerState</td>
-                }
-                else
-                {
-                    <td style="color: red">@item.AnswerState</td>
-                }*@
-                @if (!String.IsNullOrEmpty(item.AnswerState) && item.AnswerState == "Answered") {<td style="color: green"> @item.AnswerState </td>}
-                @if (!String.IsNullOrEmpty(item.AnswerState) && item.AnswerState != "Answered") {<td style="color: red"> @item.AnswerState </td>}
-                @if (!String.IsNullOrEmpty(item.CallType))  {<td> @item.CallType </td>}
-                @if (!String.IsNullOrEmpty(item.CallbackNum))  {<td> @item.CallbackNum </td>}
-                @if (!String.IsNullOrEmpty(item.DeviceType))  {<td> @item.DeviceType </td>}
-                @if (!String.IsNullOrEmpty(item.Direction))  {<td> @item.Direction </td>}
-                @if (!String.IsNullOrEmpty(item.DisplayName))  {<td> @item.DisplayName </td>}
-                @if (!String.IsNullOrEmpty(item.Duration))  {<td> @item.Duration </td>}
-            </tr>
-        }
-    </table>
-</div>
-@*Table for Network info*@
-<div>
-    <table class="table table-dark">
-        <tr>
-            <th>Device ID</th>
-            <th>Platform</th>
-            <th>MAC Address</th>
-            <th>IPv4 Address</th>
-            <th>Ipv6 Address</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                @if (!String.IsNullOrEmpty(item.DeviceID))  {<td> @item.DeviceID </td>}
-                @if (!String.IsNullOrEmpty(item.Platform))  {<td> @item.Platform </td>}
-                @if (!String.IsNullOrEmpty(item.MACAddress))  {<td> @item.MACAddress </td>}
-                @if (!String.IsNullOrEmpty(item.IPv4Address))  {<td> @item.IPv4Address</td>}
-                @if (!String.IsNullOrEmpty(item.IPv6Address) && item.IPv6Address == "No Value") {<td style="color: red"> @item.IPv6Address </td>}
-                @if (!String.IsNullOrEmpty(item.IPv6Address) && item.IPv6Address != "No Value") {<td style="color: green"> @item.IPv6Address </td>}
-            </tr>
-        }
-    </table>
-</div>
+<body style="background-color: lightgray">
+    <h1 class="text-center">New Call Data coming in: </h1>
+    <div id="timerLabel" class="text-center" runat="server" style="text-align:center; font-size:3em">60</div>
 
-<div>
-    <table class="table table-dark">
-        <tr>
-            <th>Peripheral Hardware Info</th>
-            <th>Peripheral ID</th>
-            <th>Peripheral Name</th>
-            <th>Peripheral Software Info</th>
-            <th>Peripheral Status</th>
-            <th>Peripheral Type</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-    <tr>
-        <td>@item.PeriHardware</td>
-        <td>@item.PeriID</td>
-        <td>@item.PeriName</td>
-        <td>@item.PeriSoftware</td>
-        @if (item.PeriStatus == "Connected")
-        {
-            <td style="color: green">@item.PeriStatus</td>
+    <script type="text/javascript">function countdown() {
+            seconds = document.getElementById("timerLabel").innerHTML;
+            if (seconds > 0) {
+                document.getElementById("timerLabel").innerHTML = seconds - 1;
+                setTimeout("countdown()", 1000);
+            }
         }
-        else
-        {
-            <td style="color: red">@item.PeriStatus</td>
-        }
-        <td>@item.PeriType</td>
-    </tr>
-
-        }
-    </table>
-</div>
-
-<div>
-    <table class="table table-dark">
-        <tr>
-            <th>System Time</th>
-            <th>Contact Name</th>
-            <th>Contact Number</th>
-        </tr>
-        @foreach (var item in Model)
-        {
+        setTimeout("countdown()", 1000);</script>
+    <div style="padding-top: 2rem">
+        <table class="table table-dark">
             <tr>
-                <td>@item.Time</td>
-                <td>@item.Name</td>
-                <td>@item.Number</td>
+                <th>Product Id</th>
+                <th>Product Platform</th>
+                <th>Product Type</th>
+                <th>Software Details</th>
+                <th>Diagnostics Information</th>
+                <th>State</th>
             </tr>
-        }
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.ProductID))
+                    {
+                        <td> @item.ProductID </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.ProductPlatform))
+                    {
+                        <td> @item.ProductPlatform </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.ProductType))
+                    {
+                        <td> @item.ProductType </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.SoftwareDetails))
+                    {
+                        <td> @item.SoftwareDetails </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.DiagnosticInformation))
+                    {
+                        <td> @item.DiagnosticInformation </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.State))
+                    {
+                        <td> @item.State </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+    @*Table for call information*@
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th>Answer State</th>
+                <th>Call Type</th>
+                <th>Callback Number</th>
+                <th>Device Type</th>
+                <th>Direction</th>
+                <th>Display Name</th>
+                <th>Duration</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.AnswerState) && item.AnswerState == "Answered")
+                    {
+                        <td style="color: green"> @item.AnswerState </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.AnswerState) && item.AnswerState != "Answered")
+                    {
+                        <td style="color: red"> @item.AnswerState </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.CallType))
+                    {
+                        <td> @item.CallType </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.CallbackNum))
+                    {
+                        <td> @item.CallbackNum </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.DeviceType))
+                    {
+                        <td> @item.DeviceType </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.Direction))
+                    {
+                        <td> @item.Direction </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.DisplayName))
+                    {
+                        <td> @item.DisplayName </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.Duration))
+                    {
+                        <td> @item.Duration </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+    @*Table for Network info*@
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th>Device ID</th>
+                <th>Platform</th>
+                <th>MAC Address</th>
+                <th>IPv4 Address</th>
+                <th>Ipv6 Address</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.DeviceID))
+                    {
+                        <td> @item.DeviceID </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.Platform))
+                    {
+                        <td> @item.Platform </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.MACAddress))
+                    {
+                        <td> @item.MACAddress </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.IPv4Address))
+                    {
+                        <td> @item.IPv4Address</td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.IPv6Address) && item.IPv6Address == "No Value")
+                    {
+                        <td style="color: red"> @item.IPv6Address </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.IPv6Address) && item.IPv6Address != "No Value")
+                    {
+                        <td style="color: green"> @item.IPv6Address </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th>Peripheral Hardware Info</th>
+                <th>Peripheral ID</th>
+                <th>Peripheral Name</th>
+                <th>Peripheral Software Info</th>
+                <th>Peripheral Status</th>
+                <th>Peripheral Type</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.PeriHardware))
+                    {
+                        <td> @item.PeriHardware </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.PeriID))
+                    {
+                        <td> @item.PeriID </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.PeriName))
+                    {
+                        <td> @item.PeriName </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.PeriSoftware))
+                    {
+                        <td> @item.PeriSoftware </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.PeriStatus) && item.PeriStatus == "Connected")
+                    {
+                        <td style="color: green"> @item.PeriStatus </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.PeriStatus) && item.PeriStatus != "Connected")
+                    {
+                        <td style="color: red"> @item.PeriStatus </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.PeriType))
+                    {
+                        <td> @item.PeriType </td>
+                    }
+                </tr>
+
+            }
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th>Contact Name</th>
+                <th>Contact Number</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.Name))
+                    {
+                        <td> @item.Name </td>
+                    }
+                    @if (!String.IsNullOrEmpty(item.Number))
+                    {
+                        <td> @item.Number </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th>System Time</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (!String.IsNullOrEmpty(item.Time))
+                    {
+                        <td> @item.Time </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+</body>
