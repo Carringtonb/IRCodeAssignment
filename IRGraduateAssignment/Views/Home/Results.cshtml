@@ -7,6 +7,7 @@
     @*this block of code will refresh the page and its data every 60 seconds / 1 minute*@
     <meta http-equiv="refresh" content="60">
 </header>
+
 <head>
     <title>Cisco Video Endpoints Diagnostics</title>
 </head>
@@ -29,41 +30,91 @@
     <div style="padding-top: 2rem">
         <table class="table table-dark">
             <tr>
-                <th>Product Id</th>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Product Id</th>
                 <th>Product Platform</th>
                 <th>Product Type</th>
-                <th>Software Details</th>
-                <th>Diagnostics Information</th>
+                <th>Software Name</th>
+                <th>Software Release Date</th>
+                <th>Software Version</th>
                 <th>State</th>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    @if (!String.IsNullOrEmpty(item.ProductID))
-                    {
-                        <td> @item.ProductID </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.ProductPlatform))
-                    {
-                        <td> @item.ProductPlatform </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.ProductType))
-                    {
-                        <td> @item.ProductType </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.SoftwareDetails))
-                    {
-                        <td> @item.SoftwareDetails </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.DiagnosticInformation))
-                    {
-                        <td> @item.DiagnosticInformation </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.State))
-                    {
-                        <td> @item.State </td>
-                    }
-                </tr>
+        <tr>
+            @if (!String.IsNullOrEmpty(item.ProductID))
+            {
+                <td> @item.ProductID </td>
+            }
+            @if (!String.IsNullOrEmpty(item.ProductPlatform))
+            {
+                <td> @item.ProductPlatform </td>
+            }
+            @if (!String.IsNullOrEmpty(item.ProductType))
+            {
+                <td> @item.ProductType </td>
+            }
+            @if (!String.IsNullOrEmpty(item.SoftwareName))
+            {
+                <td> @item.SoftwareName </td>
+            }
+            @if (!String.IsNullOrEmpty(item.SoftwareRelease))
+            {
+                <td> @item.SoftwareRelease </td>
+            }
+            @if (!String.IsNullOrEmpty(item.SoftwareVersion))
+            {
+                <td> @item.SoftwareVersion </td>
+            }
+            @if (!String.IsNullOrEmpty(item.State))
+            {
+                <td> @item.State </td>
+            }
+        </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Diagnostics Last Run</th>
+                <th>Diagnostics Description</th>
+                <th>Diagnostics Level</th>
+                <th>Diagnostics Reference</th>
+                <th>Diagnostics Type</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+        <tr>
+            @if (!String.IsNullOrEmpty(item.DiaLastRun))
+            {
+                <td> @item.DiaLastRun </td>
+            }
+            @if (!String.IsNullOrEmpty(item.DiaDescription))
+            {
+                <td> @item.DiaDescription </td>
+            }
+            @if (!String.IsNullOrEmpty(item.DiaLevel) && item.DiaLevel == "Error")
+            {
+                <td style="color: red"> @item.DiaLevel </td>
+            }
+            @if (!String.IsNullOrEmpty(item.DiaLevel) && item.DiaLevel != "Error")
+            {
+                <td style="color: green"> @item.DiaLevel </td>
+            }
+            @if (!String.IsNullOrEmpty(item.DiaReference))
+            {
+                <td> @item.DiaReference </td>
+            }
+            @if (!String.IsNullOrEmpty(item.DiaType) && item.DiaType == "MicrophoneDisconnected")
+            {
+                <td style="color: red"> @item.DiaType </td>
+            }
+            @if (!String.IsNullOrEmpty(item.DiaType) && item.DiaType != "MicrophoneDisconnected")
+            {
+                <td style="color: green"> @item.DiaType </td>
+            }
+        </tr>
             }
         </table>
     </div>
@@ -71,7 +122,7 @@
     <div>
         <table class="table table-dark">
             <tr>
-                <th>Answer State</th>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Answer State</th>
                 <th>Call Type</th>
                 <th>Callback Number</th>
                 <th>Device Type</th>
@@ -122,7 +173,7 @@
     <div>
         <table class="table table-dark">
             <tr>
-                <th>Device ID</th>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Device ID</th>
                 <th>Platform</th>
                 <th>MAC Address</th>
                 <th>IPv4 Address</th>
@@ -163,7 +214,7 @@
     <div>
         <table class="table table-dark">
             <tr>
-                <th>Peripheral Hardware Info</th>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Peripheral Hardware Info</th>
                 <th>Peripheral ID</th>
                 <th>Peripheral Name</th>
                 <th>Peripheral Software Info</th>
@@ -210,7 +261,7 @@
     <div>
         <table class="table table-dark">
             <tr>
-                <th>Contact Name</th>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> Contact Name</th>
                 <th>Contact Number</th>
             </tr>
             @foreach (var item in Model)
@@ -232,7 +283,7 @@
     <div>
         <table class="table table-dark">
             <tr>
-                <th>System Time</th>
+                <th><img src="~/Assets/IRLogo.jpeg" height="30" width="30" /> System Time</th>
             </tr>
             @foreach (var item in Model)
             {
