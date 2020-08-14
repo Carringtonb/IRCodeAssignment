@@ -9,6 +9,8 @@ Bootstrap, and jQuery. The backend was written in C# using ASP.NET Core, Entity 
 
 This application is built to recieve an xml file of data regarding Cisco video endpoints. The data will be parsed and passed to a razor view where it is rendered in an easy to read format. Important pieces of data are color coded based on their status, either positive (green) or negative (red).
 
+I have chosen to build this application using C# because it is my most famliliar language. I also believe that with object-oriented programming it is much easier to seperate each piece of the project and tackle one thing at a time. OOP also is modular which helps in trouble shooting. Using RazorPages is also a very convenient way to present a view, since logic is able to be implemented in the cshtml file as well as the code behind file.
+
 ---
 
 ## Tools Used
@@ -46,6 +48,10 @@ The dotnet tools will automatically restore any NuGet dependencies. Before runni
 
 
 ---
+## Design Diagram
+
+![IRGraduationDesign.pdf](https://github.com/Carringtonb/401-readingNotes/files/5075704/IRGraduationDesign.pdf)
+
 
 ## Usage
 
