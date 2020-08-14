@@ -41,34 +41,13 @@
             @foreach (var item in Model)
             {
         <tr>
-            @if (!String.IsNullOrEmpty(item.ProductID))
-            {
-                <td> @item.ProductID </td>
-            }
-            @if (!String.IsNullOrEmpty(item.ProductPlatform))
-            {
-                <td> @item.ProductPlatform </td>
-            }
-            @if (!String.IsNullOrEmpty(item.ProductType))
-            {
-                <td> @item.ProductType </td>
-            }
-            @if (!String.IsNullOrEmpty(item.SoftwareName))
-            {
-                <td> @item.SoftwareName </td>
-            }
-            @if (!String.IsNullOrEmpty(item.SoftwareRelease))
-            {
-                <td> @item.SoftwareRelease </td>
-            }
-            @if (!String.IsNullOrEmpty(item.SoftwareVersion))
-            {
-                <td> @item.SoftwareVersion </td>
-            }
-            @if (!String.IsNullOrEmpty(item.State))
-            {
-                <td> @item.State </td>
-            }
+            @if (!String.IsNullOrEmpty(item.ProductID)) { <td> @item.ProductID </td>}
+            @if (!String.IsNullOrEmpty(item.ProductPlatform)){<td> @item.ProductPlatform </td>}
+            @if (!String.IsNullOrEmpty(item.ProductType)){<td> @item.ProductType </td>}
+            @if (!String.IsNullOrEmpty(item.SoftwareName)){<td> @item.SoftwareName </td>}
+            @if (!String.IsNullOrEmpty(item.SoftwareRelease)){<td> @item.SoftwareRelease </td>}
+            @if (!String.IsNullOrEmpty(item.SoftwareVersion)){<td> @item.SoftwareVersion </td>}
+            @if (!String.IsNullOrEmpty(item.State)){<td> @item.State </td>}
         </tr>
             }
         </table>
@@ -86,34 +65,13 @@
             @foreach (var item in Model)
             {
         <tr>
-            @if (!String.IsNullOrEmpty(item.DiaLastRun))
-            {
-                <td> @item.DiaLastRun </td>
-            }
-            @if (!String.IsNullOrEmpty(item.DiaDescription))
-            {
-                <td> @item.DiaDescription </td>
-            }
-            @if (!String.IsNullOrEmpty(item.DiaLevel) && item.DiaLevel == "Error")
-            {
-                <td style="color: red"> @item.DiaLevel </td>
-            }
-            @if (!String.IsNullOrEmpty(item.DiaLevel) && item.DiaLevel != "Error")
-            {
-                <td style="color: green"> @item.DiaLevel </td>
-            }
-            @if (!String.IsNullOrEmpty(item.DiaReference))
-            {
-                <td> @item.DiaReference </td>
-            }
-            @if (!String.IsNullOrEmpty(item.DiaType) && item.DiaType == "MicrophoneDisconnected")
-            {
-                <td style="color: red"> @item.DiaType </td>
-            }
-            @if (!String.IsNullOrEmpty(item.DiaType) && item.DiaType != "MicrophoneDisconnected")
-            {
-                <td style="color: green"> @item.DiaType </td>
-            }
+            @if (!String.IsNullOrEmpty(item.DiaLastRun)){<td> @item.DiaLastRun </td>}
+            @if (!String.IsNullOrEmpty(item.DiaDescription)){<td> @item.DiaDescription </td>}
+            @if (!String.IsNullOrEmpty(item.DiaLevel) && item.DiaLevel == "Error"){<td style="color: red"> @item.DiaLevel </td>}
+            @if (!String.IsNullOrEmpty(item.DiaLevel) && item.DiaLevel != "Error"){<td style="color: green"> @item.DiaLevel </td>}
+            @if (!String.IsNullOrEmpty(item.DiaReference)){<td> @item.DiaReference </td>}
+            @if (!String.IsNullOrEmpty(item.DiaType) && item.DiaType == "MicrophoneDisconnected"){<td style="color: red"> @item.DiaType </td>}
+            @if (!String.IsNullOrEmpty(item.DiaType) && item.DiaType != "MicrophoneDisconnected"){<td style="color: green"> @item.DiaType </td>}
         </tr>
             }
         </table>
@@ -133,38 +91,14 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    @if (!String.IsNullOrEmpty(item.AnswerState) && item.AnswerState == "Answered")
-                    {
-                        <td style="color: green"> @item.AnswerState </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.AnswerState) && item.AnswerState != "Answered")
-                    {
-                        <td style="color: red"> @item.AnswerState </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.CallType))
-                    {
-                        <td> @item.CallType </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.CallbackNum))
-                    {
-                        <td> @item.CallbackNum </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.DeviceType))
-                    {
-                        <td> @item.DeviceType </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.Direction))
-                    {
-                        <td> @item.Direction </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.DisplayName))
-                    {
-                        <td> @item.DisplayName </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.Duration))
-                    {
-                        <td> @item.Duration </td>
-                    }
+                    @if (!String.IsNullOrEmpty(item.AnswerState) && item.AnswerState == "Answered"){<td style="color: green"> @item.AnswerState </td>}
+                    @if (!String.IsNullOrEmpty(item.AnswerState) && item.AnswerState != "Answered"){<td style="color: red"> @item.AnswerState </td>}
+                    @if (!String.IsNullOrEmpty(item.CallType)){<td> @item.CallType </td>}
+                    @if (!String.IsNullOrEmpty(item.CallbackNum)){<td> @item.CallbackNum </td>}
+                    @if (!String.IsNullOrEmpty(item.DeviceType)){<td> @item.DeviceType </td>}
+                    @if (!String.IsNullOrEmpty(item.Direction)){<td> @item.Direction </td>}
+                    @if (!String.IsNullOrEmpty(item.DisplayName)){<td> @item.DisplayName </td>}
+                    @if (!String.IsNullOrEmpty(item.Duration)){<td> @item.Duration </td>}
                 </tr>
             }
         </table>
@@ -182,30 +116,12 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    @if (!String.IsNullOrEmpty(item.DeviceID))
-                    {
-                        <td> @item.DeviceID </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.Platform))
-                    {
-                        <td> @item.Platform </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.MACAddress))
-                    {
-                        <td> @item.MACAddress </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.IPv4Address))
-                    {
-                        <td> @item.IPv4Address</td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.IPv6Address) && item.IPv6Address == "No Value")
-                    {
-                        <td style="color: red"> @item.IPv6Address </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.IPv6Address) && item.IPv6Address != "No Value")
-                    {
-                        <td style="color: green"> @item.IPv6Address </td>
-                    }
+                    @if (!String.IsNullOrEmpty(item.DeviceID)){<td> @item.DeviceID </td>}
+                    @if (!String.IsNullOrEmpty(item.Platform)){<td> @item.Platform </td>}
+                    @if (!String.IsNullOrEmpty(item.MACAddress)){<td> @item.MACAddress </td>}
+                    @if (!String.IsNullOrEmpty(item.IPv4Address)){<td> @item.IPv4Address</td>}
+                    @if (!String.IsNullOrEmpty(item.IPv6Address) && item.IPv6Address == "No Value"){<td style="color: red"> @item.IPv6Address </td>}
+                    @if (!String.IsNullOrEmpty(item.IPv6Address) && item.IPv6Address != "No Value"){<td style="color: green"> @item.IPv6Address </td>}
                 </tr>
             }
         </table>
@@ -224,36 +140,14 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    @if (!String.IsNullOrEmpty(item.PeriHardware))
-                    {
-                        <td> @item.PeriHardware </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.PeriID))
-                    {
-                        <td> @item.PeriID </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.PeriName))
-                    {
-                        <td> @item.PeriName </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.PeriSoftware))
-                    {
-                        <td> @item.PeriSoftware </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.PeriStatus) && item.PeriStatus == "Connected")
-                    {
-                        <td style="color: green"> @item.PeriStatus </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.PeriStatus) && item.PeriStatus != "Connected")
-                    {
-                        <td style="color: red"> @item.PeriStatus </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.PeriType))
-                    {
-                        <td> @item.PeriType </td>
-                    }
+                    @if (!String.IsNullOrEmpty(item.PeriHardware)){<td> @item.PeriHardware </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriID)){<td> @item.PeriID </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriName)){<td> @item.PeriName </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriSoftware)){<td> @item.PeriSoftware </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriStatus) && item.PeriStatus == "Connected"){<td style="color: green"> @item.PeriStatus </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriStatus) && item.PeriStatus != "Connected"){<td style="color: red"> @item.PeriStatus </td>}
+                    @if (!String.IsNullOrEmpty(item.PeriType)){<td> @item.PeriType </td>}
                 </tr>
-
             }
         </table>
     </div>
@@ -267,14 +161,8 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    @if (!String.IsNullOrEmpty(item.Name))
-                    {
-                        <td> @item.Name </td>
-                    }
-                    @if (!String.IsNullOrEmpty(item.Number))
-                    {
-                        <td> @item.Number </td>
-                    }
+                    @if (!String.IsNullOrEmpty(item.Name)){<td> @item.Name </td>}
+                    @if (!String.IsNullOrEmpty(item.Number)){<td> @item.Number </td>}
                 </tr>
             }
         </table>
@@ -288,10 +176,7 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    @if (!String.IsNullOrEmpty(item.Time))
-                    {
-                        <td> @item.Time </td>
-                    }
+                    @if (!String.IsNullOrEmpty(item.Time)){<td> @item.Time </td>}
                 </tr>
             }
         </table>
