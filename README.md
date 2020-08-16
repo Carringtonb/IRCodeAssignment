@@ -1,9 +1,6 @@
 # IRCodeAssignment
 
 ---
-## Deployed on Azure
-
-[Azure Deployment](https://irgraduateassignment.azurewebsites.net/)
 
 ## Azure Deployment
 
