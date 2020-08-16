@@ -5,6 +5,10 @@
 
 [Azure Deployment](https://irgraduateassignment.azurewebsites.net/)
 
+## Azure Deployment
+
+[IR Graduate Assignment](https://irgraduateassignment.azurewebsites.net/)
+
 ## Web Application
 
 The web application consists of a frontend written in Razor views, HTML, CSS,
