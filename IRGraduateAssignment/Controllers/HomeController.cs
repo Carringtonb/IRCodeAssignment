@@ -14,14 +14,6 @@ namespace IRGraduateAssignment.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Index(int startyear, int endYear)
-        {
-
-            return RedirectToAction("Results");
-
-        }
-
         public IActionResult Results()
         {
             List<XMLReader.SystemUnit> systemUnit = XMLReader.ReadFile();
